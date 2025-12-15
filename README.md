@@ -87,37 +87,6 @@ Setiap departemen dapat mengakses data dari departemen sebelumnya yang relevan u
 - Required field validation
 - Data consistency checks
 
-## 🏗️ Arsitektur Teknis
-
-### Frontend
-- **Framework**: Next.js 15 dengan App Router
-- **Language**: TypeScript 5
-- **Styling**: Tailwind CSS 4
-- **UI Components**: shadcn/ui (New York style)
-- **Icons**: Lucide React
-- **State Management**: React Hooks + Database Class
-
-### Backend
-- **API Routes**: Next.js API routes
-- **Database**: In-memory Database Class (mock)
-- **Data Structure**: TypeScript interfaces
-- **Validation**: Client-side dan server-side
-
-### Database Design
-```typescript
-// Shared interfaces untuk semua departemen
-interface SPP { ... }
-interface SOPb { ... }  
-interface LPB { ... }
-interface KartuGudang { ... }
-interface BKK { ... }
-
-// Centralized database class
-class Database {
-  // CRUD operations untuk semua entities
-  // Data consistency antar departemen
-  // Real-time updates
-}
 ```
 
 ## 🚀 Cara Penggunaan
