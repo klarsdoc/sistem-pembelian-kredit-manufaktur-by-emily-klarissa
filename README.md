@@ -122,20 +122,13 @@ class Database {
 
 ## 🚀 Cara Penggunaan
 
-### 1. Akses Sistem
-- Buka `http://localhost:3000`
-- Gunakan sidebar untuk navigasi departemen
-- Pilih prosedur sesuai kebutuhan
-
-### 2. Alur Kerja Standar
-
-#### Step 1: Produksi
+### Step 1: Produksi
 1. Pilih departemen "Produksi/PPIC"
 2. Klik "Buat SPP Baru"
 3. Input barang yang dibutuhkan
 4. Submit ke Pembelian
 
-#### Step 2: Pembelian
+### Step 2: Pembelian
 1. Pilih departemen "Pembelian"
 2. Pilih "Proses SPP"
 3. Pilih SPP dari Produksi
@@ -143,100 +136,30 @@ class Database {
 5. Input harga dan buat SOPb
 6. Kirim ke Supplier
 
-#### Step 3: Penerimaan
+### Step 3: Penerimaan
 1. Pilih departemen "Penerimaan"
 2. Pilih "Verifikasi Barang"
 3. Input data fisik barang yang diterima
 4. Buat LPB
 5. Submit ke Gudang
 
-#### Step 4: Gudang
+### Step 4: Gudang
 1. Pilih departemen "Gudang"
 2. Pilih "Proses LPB"
 3. LPB akan otomatis update stok
 4. Monitor saldo di Kartu Gudang
 
-#### Step 5: Akuntansi
+### Step 5: Akuntansi
 1. Pilih departemen "Akuntansi"
 2. Pilih "Three-Way Match"
 3. Verifikasi SOPb × LPB × Faktur
 4. Buat BKK jika match
 
-#### Step 6: Keuangan
+### Step 6: Keuangan
 1. Pilih departemen "Keuangan"
 2. Pilih "Otorisasi BKK"
 3. Proses pembayaran
 4. Update status menjadi "Lunas"
-
-## 📊 Monitoring & Reporting
-
-### Dashboard Features
-- Real-time transaction counts
-- Outstanding payment tracking
-- Stock level monitoring
-- Status per department
-
-### Search & Filter
-- Search by document number
-- Filter by date range
-- Filter by status
-- Export data capabilities
-
-## 🔧 Konfigurasi
-
-### Environment Setup
-```bash
-npm install
-npm run dev
-```
-
-### Access Points
-- Frontend: `http://localhost:3000`
-- API Routes: Integrated dengan Next.js
-
-## 🎯 Keunggulan
-
-1. **Terintegrasi**: Data mengalir antar departemen
-2. **Role-Based**: Akses data sesuai fungsi departemen
-3. **User-Friendly**: Interface intuitif dengan sidebar navigation
-4. **Real-time**: Update status langsung
-5. **Flexible**: Edit & delete untuk koreksi data
-6. **Scalable**: TypeScript dan Next.js architecture
-7. **Responsive**: Mobile-friendly design
-
-## 📝 Data Flow Examples
-
-### Data dari Produksi ke Pembelian
-```typescript
-// Produksi creates SPP
-const spp = db.addSPP({...})
-
-// Pembelian can access and process
-const submittedSPPs = db.getSPPs().filter(spp => spp.status === 'submitted')
-```
-
-### Data dari Penerimaan ke Gudang
-```typescript
-// Penerimaan creates LPB
-const lpb = db.addLPB({...})
-
-// Gudang processes and updates stock
-lpb.items.forEach(item => {
-  db.updateKartuGudang(item.kodeBarang, { 
-    pemasukan: item.quantityDiterima 
-  })
-})
-```
-
-## 🔄 Future Enhancements
-
-- Real database integration (PostgreSQL/MySQL)
-- User authentication dan role management
-- Email notifications untuk status changes
-- Advanced reporting dengan charts
-- Export ke PDF/Excel
-- Mobile app development
-- API untuk integrasi sistem lain
 
 ---
 
